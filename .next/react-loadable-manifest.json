@@ -1,0 +1,184 @@
+{
+  "./noop": [
+    {
+      "id": "./node_modules/next/dist/client/noop.js",
+      "name": "./node_modules/next/dist/client/noop.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    }
+  ],
+  "./TextEditor": [
+    {
+      "id": "./components/ui/TextEditor.js",
+      "name": "./components/ui/TextEditor.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "brace/ext/split": [
+    {
+      "id": "./node_modules/brace/ext/split.js",
+      "name": "./node_modules/brace/ext/split.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "brace": [
+    {
+      "id": "./node_modules/brace/index.js",
+      "name": "./node_modules/brace/index.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "brace/mode/javascript": [
+    {
+      "id": "./node_modules/brace/mode/javascript.js",
+      "name": "./node_modules/brace/mode/javascript.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "brace/mode/json": [
+    {
+      "id": "./node_modules/brace/mode/json.js",
+      "name": "./node_modules/brace/mode/json.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "brace/theme/monokai": [
+    {
+      "id": "./node_modules/brace/theme/monokai.js",
+      "name": "./node_modules/brace/theme/monokai.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "brace/theme/tomorrow": [
+    {
+      "id": "./node_modules/brace/theme/tomorrow.js",
+      "name": "./node_modules/brace/theme/tomorrow.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "../worker/javascript": [
+    {
+      "id": "./node_modules/brace/worker/javascript.js",
+      "name": "./node_modules/brace/worker/javascript.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "../worker/json": [
+    {
+      "id": "./node_modules/brace/worker/json.js",
+      "name": "./node_modules/brace/worker/json.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "diff-match-patch": [
+    {
+      "id": "./node_modules/diff-match-patch/index.js",
+      "name": "./node_modules/diff-match-patch/index.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "lodash.get": [
+    {
+      "id": "./node_modules/lodash.get/index.js",
+      "name": "./node_modules/lodash.get/index.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "lodash.isequal": [
+    {
+      "id": "./node_modules/lodash.isequal/index.js",
+      "name": "./node_modules/lodash.isequal/index.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "!!webpack amd define": [
+    {
+      "id": "./node_modules/next/node_modules/webpack/buildin/amd-define.js",
+      "name": "./node_modules/next/node_modules/webpack/buildin/amd-define.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "./ace.js": [
+    {
+      "id": "./node_modules/react-ace/lib/ace.js",
+      "name": "./node_modules/react-ace/lib/ace.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "./diff.js": [
+    {
+      "id": "./node_modules/react-ace/lib/diff.js",
+      "name": "./node_modules/react-ace/lib/diff.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "./editorOptions.js": [
+    {
+      "id": "./node_modules/react-ace/lib/editorOptions.js",
+      "name": "./node_modules/react-ace/lib/editorOptions.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "react-ace": [
+    {
+      "id": "./node_modules/react-ace/lib/index.js",
+      "name": "./node_modules/react-ace/lib/index.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "./split.js": [
+    {
+      "id": "./node_modules/react-ace/lib/split.js",
+      "name": "./node_modules/react-ace/lib/split.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ],
+  "nprogress/nprogress.css": [
+    {
+      "id": "./node_modules/nprogress/nprogress.css",
+      "name": "./node_modules/nprogress/nprogress.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "undefined": [
+    {
+      "id": 1,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "antd/dist/antd.css": [
+    {
+      "id": "./node_modules/antd/dist/antd.css",
+      "name": "./node_modules/antd/dist/antd.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ]
+}
