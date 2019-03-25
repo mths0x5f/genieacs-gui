@@ -60,9 +60,10 @@ class FilterModal extends Component {
         return
       }
 
-    this.setState({ query, invalidJsonAlertVisible: false }, () =>
+    this.setState({ query, invalidJsonAlertVisible: false }, () => {
+      console.debug('calling back onFilterChange with filter', query)
       this.props.onFilterChange(this.state.query)
-    )
+    })
   }
 
   createSimpleFilter = () => {
@@ -81,7 +82,7 @@ class FilterModal extends Component {
         return `(${qs.join(' OR ')})`
       }
     )
-    return fields.length > 1 ? compile(fields.join(' AND ')) : {}
+    return fields.length > 0 ? compile(fields.join(' AND ')) : {}
   }
 
   createAdvancedFilter = () => {
@@ -89,6 +90,7 @@ class FilterModal extends Component {
     // the query param does not support
     // anything but an obj in root level
     if (Array.isArray(query) || !(query instanceof Object)) throw SyntaxError
+    return query
   }
 
   handleSimpleFormChange = (key, value) => {
