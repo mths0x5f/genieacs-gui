@@ -8,15 +8,12 @@
     "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.24.0",
-    "monaco-editor-webpack-plugin": "^1.7.0",
     "monquery": "^0.2.0",
     "next": "^8.0.3",
     "nprogress": "^0.2.0",
     "react": "^16.8.4",
     "react-ace": "^6.4.0",
     "react-dom": "^16.8.4",
-    "react-moment": "^0.8.4",
-    "react-monaco-editor": "^0.25.1",
     "react-scripts": "2.1.8"
   },
   "scripts": {
