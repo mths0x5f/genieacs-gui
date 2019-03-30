@@ -67,8 +67,8 @@ class FilterModal extends Component {
   }
 
   createSimpleFilter = () => {
-    let fields = Array.from(this.state.simpleFormValues.entries()).map(
-      ([key, value] = e) => {
+    let fields = Array.from(this.state.simpleFormValues.entries()).reduce(
+      (rs, [key, value] = e) => {
         let qs = value.map(v => {
           for (let op of ['!=', '>=', '<=', '>', '<']) {
             if (v.slice(0, 2).indexOf(op) >= 0) {
@@ -79,8 +79,10 @@ class FilterModal extends Component {
           }
           return `${key}: "/${v}/i"`
         })
-        return `(${qs.join(' OR ')})`
-      }
+        if (qs.length > 0) rs.push(`(${qs.join(' OR ')})`)
+        return rs
+      },
+      []
     )
     return fields.length > 0 ? compile(fields.join(' AND ')) : {}
   }

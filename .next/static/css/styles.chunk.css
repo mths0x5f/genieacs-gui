@@ -22599,5 +22599,31 @@ li.ant-tree-treenode-disabled > .ant-tree-node-content-wrapper:hover {
 
 
 /*# sourceMappingURL=antd.css.map*/
+.ant-table td {
+  white-space: nowrap;
+}
+
+.long-text {
+  display: inline-block;
+  vertical-align: bottom;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ant-tree-child-tree > li:first-child,
+.ant-tree li {
+  padding: 0;
+}
+
+.ant-tree li span.ant-tree-switcher {
+  padding-top: 5px;
+}
+
+.ant-tree li .ant-tree-node-content-wrapper {
+  height: auto;
+}
+
 
 /*# sourceMappingURL=styles.chunk.css.map*/

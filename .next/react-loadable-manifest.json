@@ -171,12 +171,40 @@
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 4,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     }
   ],
   "antd/dist/antd.css": [
     {
       "id": "./node_modules/antd/dist/antd.css",
       "name": "./node_modules/antd/dist/antd.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./Table.css": [
+    {
+      "id": "./components/devices/ui/Table.css",
+      "name": "./components/devices/ui/Table.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./Params.css": [
+    {
+      "id": "./components/devices/ui/Params.css",
+      "name": "./components/devices/ui/Params.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
