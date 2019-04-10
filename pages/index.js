@@ -1,14 +1,16 @@
 import React from 'react'
-import Link from 'next/link'
-import LayoutD from '../components/Layout'
+import Router from 'next/router'
 
-const Index = () => (
-  <LayoutD>
-    <Link href="/devices?query={}">
-      <a>About Page</a>
-    </Link>
-    <p>Hello Next.js</p>
-  </LayoutD>
-)
-
-export default Index
+export default class extends React.Component {
+  static async getInitialProps ({ res }) {
+    if (res) {
+      res.writeHead(302, {
+        Location: '/devices'
+      })
+      res.end()
+    } else {
+      Router.push('/devices')
+    }
+    return {}
+  }
+}
