@@ -1,7 +1,7 @@
 // genieacs-gui/app/views/devices/_params.html.erb  counterpart
 
 import React, { Component } from 'react'
-import { Tree, Input, Row, Col, Divider, Icon, Typography } from 'antd'
+import { Col, Icon, Input, Row, Tree, Typography } from 'antd'
 import moment from 'moment'
 
 import './Params.css'
@@ -16,8 +16,8 @@ const iconStyle = { color: 'rgba(0, 0, 0, 0.65)', marginRight: 10 }
 const sorter = (a, b) => (a._path > b._path ? 1 : a._path < b._path ? -1 : 0)
 
 const highlightText = (text, textToHighlight) => {
-  let s = text.search(new RegExp(textToHighlight, 'i'))
-  let e = s + textToHighlight.length
+  const s = text.search(new RegExp(textToHighlight, 'i'))
+  const e = s + textToHighlight.length
   return (
     <>
       {s >= 0 ? (
@@ -36,21 +36,38 @@ const highlightText = (text, textToHighlight) => {
 }
 
 class Params extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.typingTimeout = 0
     this.state = {
       params: props.defaultParams.sort(sorter),
+      tree: null
     }
   }
 
-  componentDidMount = () => this.processParams(this.state.params, true)
+  componentDidMount = () => {
+    console.log('mounted', this.state.params)
+    this.processParams(this.state.params, true)
+  }
+
+  componentDidUpdate (prevProps, prevState, snapshot) {
+    if (prevProps.defaultParams !== this.props.defaultParams) {
+      this.setState({ params: this.props.defaultParams.sort(sorter) }, () => {
+        console.log('updated', this.state.params)
+        const searchTerm = this.state.searchText ? this.state.searchText : ''
+        this.processParams(this.state.params, true, searchTerm)
+      })
+    }
+  }
 
   processParams = (params, group, searchTerm = '') => {
     let p
-    if (group) p = groupParams(params)
-    else p = { children: params }
-    let tree = this.treeNodes(p, searchTerm)
+    if (group) {
+      p = groupParams(params)
+    } else {
+      p = { children: params }
+    }
+    const tree = this.treeNodes(p, searchTerm)
     this.setState({ tree })
   }
 
@@ -59,19 +76,20 @@ class Params extends Component {
       v._path.search(new RegExp(s, 'i')) >= 0 ||
       (v._value && ('' + v._value).search(new RegExp(s, 'i')) >= 0)
 
-    let searchText = e.target.value
+    const searchText = e.target.value
+    this.setState({ searchText })
 
     // setTimeout is used to delay search and smooth typing
     clearTimeout(this.typingTimeout)
 
     this.typingTimeout = setTimeout(() => {
-      let params = this.state.params.filter(v => search(v, searchText))
+      const params = this.state.params.filter(v => search(v, searchText))
       this.processParams(params, searchText === '', searchText)
     }, 500 / searchText.length)
   }
 
   treeNodes = (params, searchTerm) => {
-    let nodes = params.children.map(p => {
+    const nodes = params.children.map(p => {
       if (p.children) {
         return (
           <TreeNode
@@ -100,7 +118,7 @@ class Params extends Component {
         style={{
           whiteSpace: 'normal',
           borderBottom: '1px solid #e8e8e8',
-          padding: 5,
+          padding: 5
         }}
       >
         <Row>
@@ -127,28 +145,28 @@ class Params extends Component {
                   {moment(p._timestamp).fromNow()}
                 </Text>
               </Col>
-              <Col span={10} pull={2}>
-                <a onClick={() => this.handleRefresh(p._path)}>Refresh</a>
-                {p._object
-                  ? p._writable &&
-                    (p._path.match(/\.[\d]+$/) ? (
-                      <>
-                        <Divider type="vertical" />
-                        <a>Delete</a>
-                      </>
-                    ) : (
-                      <>
-                        <Divider type="vertical" />
-                        <a>Add</a>
-                      </>
-                    ))
-                  : p._writable && (
-                      <>
-                        <Divider type="vertical" />
-                        <a>Edit</a>
-                      </>
-                    )}
-              </Col>
+              {/* <Col span={10} pull={2}> */}
+              {/*  <a onClick={() => this.handleRefresh(p._path)}>Refresh</a> */}
+              {/*  {p._object */}
+              {/*    ? p._writable && */}
+              {/*    (p._path.match(/\.[\d]+$/) ? ( */}
+              {/*      <> */}
+              {/*        <Divider type="vertical"/> */}
+              {/*        <a>Delete</a> */}
+              {/*      </> */}
+              {/*    ) : ( */}
+              {/*      <> */}
+              {/*        <Divider type="vertical"/> */}
+              {/*        <a>Add</a> */}
+              {/*      </> */}
+              {/*    )) */}
+              {/*    : p._writable && ( */}
+              {/*    <> */}
+              {/*      <Divider type="vertical"/> */}
+              {/*      <a>Edit</a> */}
+              {/*    </> */}
+              {/*  )} */}
+              {/* </Col> */}
             </Row>
           </Col>
         </Row>
@@ -190,7 +208,7 @@ class Params extends Component {
           height: '500px',
           overflowX: 'hidden',
           overflowY: 'auto',
-          padding: 0,
+          padding: 0
         }}
       >
         {this.state.tree && (

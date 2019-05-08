@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import { Button, Icon, Table, Typography, Divider } from 'antd'
 import { withRouter } from 'next/router'
 
-import BaseLayout, { Header, Content } from '../components/layout'
+import BaseLayout, { Content, Header } from '../components/layout'
 import Index, { Show } from '../components/devices/views'
+import LastInformBadge from '../components/devices/ui/LastInformBadge'
 
 class Devices extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       header: {},
-      params: { ...props.router.query },
+      params: { ...props.router.query }
     }
   }
 
@@ -23,35 +23,44 @@ class Devices extends Component {
     if (this.state.params.action === 'show') {
       header = {
         title: this.state.params.id,
-        subTitle: 'this.state.params.id',
-        extra: (
-          <>
-            <Button type="primary" style={{ margin: '0 5px' }}>
-              Refresh
-            </Button>
-            <Button type="default" style={{ margin: '0 5px' }}>
-              Ping
-            </Button>
-            <Button type="dashed" style={{ margin: '0 5px' }}>
-              Reboot
-            </Button>
-            {/* <Button type="danger" style={{margin:'0 5px'}}>Factory reset</Button> */}
-            {/* <Button type="danger" style={{margin:'0 5px'}}>Delete</Button> */}
-          </>
-        ),
-        footer: '',
+        // footer: (
+        //   <div style={{ padding: 20, paddingTop: 0, textAlign: 'right' }}>
+        //     <Button type="default" style={{ margin: '0 5px' }}>
+        //       Ping
+        //     </Button>
+        //     <Button type="dashed" style={{ margin: '0 5px' }}>
+        //       Reboot
+        //     </Button>
+        //     <Button type="danger" style={{ margin: '0 5px' }}>
+        //       Factory reset
+        //     </Button>
+        //     <Button type="danger" style={{ margin: '0 5px' }}>
+        //       Delete
+        //     </Button>
+        //   </div>
+        // )
       }
-    } else header = { title: 'Devices' }
+    } else {
+      header = { title: 'Devices' }
+    }
 
     this.setState({ header })
   }
 
-  handleDeviceChange = () => {}
+  handleDeviceChange = device => {
+    const header = this.state.header
+    this.setState({
+      header: {
+        ...header,
+        subTitle: <LastInformBadge datetime={device._lastInform}/>
+      }
+    })
+  }
 
   render = () => {
     return (
       <BaseLayout>
-        <Header {...this.state.header} />
+        <Header {...this.state.header} subTitle={this.state.header.subTitle}/>
 
         {this.state.params.action === 'show' ? (
           <Content>
@@ -62,7 +71,7 @@ class Devices extends Component {
           </Content>
         ) : (
           <Content>
-            <Index router={this.props.router} />
+            <Index router={this.props.router}/>
           </Content>
         )}
       </BaseLayout>
